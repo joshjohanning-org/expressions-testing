@@ -31,4 +31,5 @@ jobs:
         with:
           # Artifact name
           name: format('Artifact-{0}-{1}', 'Build', github.ref_name }})
+          path: file.txt
   
