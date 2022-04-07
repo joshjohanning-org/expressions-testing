@@ -6,6 +6,9 @@ on:
   pull_request:
     branches: [ main ]
   workflow_dispatch:
+
+env:
+  ACTIONS_RUNNER_DEBUG: true
   
 jobs:
   build:
@@ -13,4 +16,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          clean: ${{ (github.ref == 'refs/heads/main') }} # if not main, then true
+          clean: ${{ !(github.ref == 'refs/heads/main') }} # if main, then false
+          
+      - run: echo "hello"
