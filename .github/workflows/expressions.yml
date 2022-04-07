@@ -24,4 +24,11 @@ jobs:
           clean: ${{ !(github.ref == 'refs/heads/main') }} # if main, then false
           path: ${{ github.event.inputs.path == '' && github.workspace || github.event.inputs.path }} # if path = '', clone to github.workspace, otherwise clone to that path
           
-      - run: echo "hello"
+      - run: echo "hello" > file.txt
+      
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v3.0.0
+        with:
+          # Artifact name
+          name: format('Artifact-{0}-{1}', 'Build', github.ref_name }})
+  
