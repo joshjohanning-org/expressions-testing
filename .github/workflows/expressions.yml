@@ -77,8 +77,23 @@ jobs:
         
         
 
-  deploy:
+  deploydev:
     runs-on: ubuntu-latest
     needs: [build]
     steps:
       - uses: actions/checkout@v3
+
+  prod1:
+    runs-on: ubuntu-latest
+    needs: [deploydev]
+    steps:
+      - uses: actions/checkout@v3
+      
+      
+  prod2:
+    runs-on: ubuntu-latest
+    needs: [deploydev]
+    steps:
+      - uses: actions/checkout@v3
+    
+    
