@@ -92,7 +92,7 @@ jobs:
       
   prod2:
     runs-on: ubuntu-latest
-    needs: [deploydev]
+    needs: [build, deploydev, prod1]
     steps:
       - uses: actions/checkout@v3
     
