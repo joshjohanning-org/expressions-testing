@@ -63,7 +63,9 @@ jobs:
         run: | 
           echo "only run if success"
           # if successful, then make your own output or environment variable
-          echo "important_step_result=true" >> $GITHUB_ENV
+          # you have an if statement, if successul, set to true, if not, set to false...
+          # echo "important_step_result=true" >> $GITHUB_ENV
+          echo "important_step_result=false" >> $GITHUB_ENV
         if: always()
         
       - name: only run IF important step was successful
