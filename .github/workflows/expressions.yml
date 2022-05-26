@@ -32,8 +32,8 @@ jobs:
           name: ${{ format('Artifact-{0}-{1}{2}', 'Build', github.ref_name, (github.ref != 'refs/heads/main') && '-beta' || '' ) }} # name the artifact we're publishing - append "-beta" if not main branch
           path: file.txt
   
-      - name: force a failure
-        run: abcdefg
+      # - name: force a failure
+      #   run: abcdefg
         
       - name: next step
         run: echo "hello"
