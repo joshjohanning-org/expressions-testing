@@ -60,15 +60,18 @@ jobs:
         if: success()
         
       - name: super important step
+        id: important
         run: | 
           echo "only run if success"
           # if successful, then make your own output or environment variable
           # you have an if statement, if successul, set to true, if not, set to false...
           # echo "important_step_result=true" >> $GITHUB_ENV
           echo "important_step_result=false" >> $GITHUB_ENV
+          echo "::set-output name=important_step_result::true"
         if: always()
         
       - name: only run IF important step was successful
         run: echo "only run if success"
-        if: ${{ success() && env.important_step_result == 'true' }}
+        # if: ${{ success() && env.important_step_result == 'true' }}
+        if: ${{ success() && steps.outputs.important.important_step_result == 'true' }}
         
