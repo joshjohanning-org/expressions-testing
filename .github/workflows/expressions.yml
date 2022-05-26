@@ -68,5 +68,5 @@ jobs:
         
       - name: only run IF important step was successful
         run: echo "only run if success"
-        if: ${{ success() && env.important_step_result == "true" }}
+        if: ${{ success() && env.important_step_result == true }}
         
