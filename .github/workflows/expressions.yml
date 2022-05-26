@@ -36,15 +36,15 @@ jobs:
         run: abcdefg
         
       - name: next step
-        run: echo "hello
+        run: echo "hello"
         # if: success() # this is implied
         
       - name: next step1
-        run: echo "hello
+        run: echo "hello"
         # if: success() # this is implied
         
       - name: next step2
-        run: echo "hello
+        run: echo "hello"
         # if: success() # this is implied
         
       - name: always run
@@ -58,4 +58,15 @@ jobs:
       - name: only run if success
         run: echo "only run if success"
         if: success()
+        
+      - name: super important step
+        run: | 
+          echo "only run if success"
+          # if successful, then make your own output or environment variable
+          echo "important_step_result=true" >> $GITHUB_ENV
+        if: always()
+        
+      - name: only run IF important step was successful
+        run: echo "only run if success"
+        if: ${{ success() && env.important_step_result == "true"
         
