@@ -32,3 +32,30 @@ jobs:
           name: ${{ format('Artifact-{0}-{1}{2}', 'Build', github.ref_name, (github.ref != 'refs/heads/main') && '-beta' || '' ) }} # name the artifact we're publishing - append "-beta" if not main branch
           path: file.txt
   
+      - name: force a failure
+        run: abcdefg
+        
+      - name: next step
+        run: echo "hello
+        # if: success() # this is implied
+        
+      - name: next step1
+        run: echo "hello
+        # if: success() # this is implied
+        
+      - name: next step2
+        run: echo "hello
+        # if: success() # this is implied
+        
+      - name: always run
+        run: echo "always running!"
+        if: always()
+        
+      - name: only run if failure
+        run: echo "only run if failure"
+        if: failure()
+        
+      - name: only run if success
+        run: echo "only run if success"
+        if: success()
+        
