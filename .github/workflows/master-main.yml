@@ -1,14 +1,14 @@
 name: master and main
 
 on: 
-  push
+  push:
   workflow_dispatch:
     
 
 jobs:
   master-main:
-  runs-on: ubuntu-latest
-  if:  ${{ !(github.ref == 'refs/heads/main') }} # if main, then false
-  steps:
-  - run: echo "hello"
+    runs-on: ubuntu-latest
+    if:  ${{ !(github.ref == 'refs/heads/main') }} # if main, then false
+    steps:
+    - run: echo "hello"
 
