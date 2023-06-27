@@ -3,7 +3,7 @@ name: master and main
 on: 
   push:
   workflow_dispatch:
-    
+  pull_request:
 
 jobs:
   master-main:
