@@ -8,7 +8,7 @@ on:
 jobs:
   master-main:
     runs-on: ubuntu-latest
-    if:  ${{ (github.ref == 'refs/heads/main') || (github.ref == 'refs/heads/master') }} # if main or master, then yes
+    if:  ${{ (github.ref == 'refs/heads/main') || (github.ref == 'refs/heads/master') }} # if main or master, then run
     steps:
     - run: echo "hello"
 
