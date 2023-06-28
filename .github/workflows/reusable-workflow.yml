@@ -35,10 +35,11 @@ jobs:
     #     path: cache-folder
     #     key: ${{ runner.os }}-${{ hashFiles("${{ inputs.folder-to-hash }}/package.json") }}
 
+    # also works
     - uses: actions/cache@v3
       with:
         path: cache-folder
-        key: ${{ runner.os }}-2-${{ hashFiles(format('{0}/{1}',inputs.folder-to-hash,'package.json')) }}
+        key: ${{ runner.os }}-${{ hashFiles(format('{0}/{1}',inputs.folder-to-hash,'package.json')) }}
 
     # works
     - uses: actions/cache@v3
