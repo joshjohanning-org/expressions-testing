@@ -28,7 +28,7 @@ jobs:
         mkdir pkg-manifest-folder
         cd pkg-manifest-folder
         touch package.json
-        echo "hii" > package.json
+        echo "hiii" > package.json
         
     # - uses: actions/cache@v3
     #   with:
@@ -38,7 +38,7 @@ jobs:
     - uses: actions/cache@v3
       with:
         path: cache-folder
-        key: ${{ runner.os }}-2-${{ hashFiles(format('{0}/{1}',inputs.folder-to-hash,'/package.json')) }}
+        key: ${{ runner.os }}-2-${{ hashFiles(format('{0}/{1}',inputs.folder-to-hash,'package.json')) }}
 
     # works
     - uses: actions/cache@v3
