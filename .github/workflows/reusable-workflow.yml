@@ -1,0 +1,34 @@
+name: reusable workflow
+
+on:
+  workflow_call:
+    inputs:
+      folder-to-hash:
+        type: string
+        default: pkg-manifest-folder
+        description: test hash
+  
+
+jobs:
+  my-job:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: create fake cache
+      run: |
+        mkdir cache-folder
+        cd cache-folder
+        touch file1
+        touch file2
+        touch file3
+        echo "hello" > file1
+        cd ..
+        mkdir pkg-manifest-folder
+        cd pkg-manifest-folder
+        touch package.json
+        echo "hi" > package.json
+        
+    - uses: actions/cache@v3
+      with:
+        path: cache-folder
+        key: ${{ runner.os }}-${{ hashFiles('inputs.folder-to-hash/package.json') }}
