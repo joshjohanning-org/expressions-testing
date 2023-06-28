@@ -30,11 +30,6 @@ jobs:
         touch package.json
         echo "hiii" > package.json
         
-    # - uses: actions/cache@v3
-    #   with:
-    #     path: cache-folder
-    #     key: ${{ runner.os }}-${{ hashFiles("${{ inputs.folder-to-hash }}/package.json") }}
-
     # also works
     - uses: actions/cache@v3
       with:
