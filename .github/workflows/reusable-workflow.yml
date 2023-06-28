@@ -31,4 +31,4 @@ jobs:
     - uses: actions/cache@v3
       with:
         path: cache-folder
-        key: ${{ runner.os }}-${{ hashFiles('inputs.folder-to-hash/package.json') }}
+        key: ${{ runner.os }}-${{ hashFiles('${{ inputs.folder-to-hash }}/package.json') }}
