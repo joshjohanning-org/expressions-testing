@@ -8,6 +8,8 @@ on:
         default: pkg-manifest-folder
         description: test hash
   
+env:
+  cache-item: '${{ inputs.folder-to-hash }}/package.json'
 
 jobs:
   my-job:
@@ -37,3 +39,8 @@ jobs:
       with:
         path: cache-folder
         key: ${{ runner.os }}-${{ hashFiles('"inputs.folder-to-hash"/package.json') }}
+
+    - uses: actions/cache@v3
+      with:
+        path: cache-folder
+        key: ${{ runner.os }}-${{ hashFiles('env.cache-item') }}
