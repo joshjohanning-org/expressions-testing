@@ -43,4 +43,4 @@ jobs:
     - uses: actions/cache@v3
       with:
         path: cache-folder
-        key: ${{ runner.os }}-${{ hashFiles('env.cache-item') }}
+        key: ${{ runner.os }}-${{ hashFiles('${{ env.cache-item }}') }}
