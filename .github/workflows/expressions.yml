@@ -16,6 +16,7 @@ env:
   
 jobs:
   reusable-workflow-call:
+    name: call
     uses: ./.github/workflows/reusable-workflow.yml
   build:
     runs-on: ubuntu-latest
