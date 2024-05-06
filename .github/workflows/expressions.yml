@@ -79,5 +79,7 @@ jobs:
         # if: ${{ success() && env.important_step_result == 'true' }}
         if: ${{ success() && steps.important.outputs.important_step_result == 'true' }}
         
-        
+      - name: only run on pull requests
+        if: github.event_name == 'pull_request'
+        run: echo "hello"
     
